@@ -1,0 +1,14 @@
+logs/*
+results/*
+results
+logs
+
+.idea
+target
+target/*
+
+out
+out/*
+
+build
+build/*
