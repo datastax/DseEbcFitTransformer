@@ -4,6 +4,7 @@ build
 *.iws
 .DS_Store
 .gradle
+.gradle/*
 /bin/
 .settings/
 .idea/
