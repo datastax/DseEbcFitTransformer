@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema name="autoSolrSchema" version="1.5">
+    <types>
+        <fieldType class="org.apache.solr.schema.TrieDateField" name="TrieDateField"/>
+        <fieldType class="org.apache.solr.schema.TextField" name="TextField">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType class="org.apache.solr.schema.StrField" name="StrField"/>
+        <fieldType class="org.apache.solr.schema.TrieIntField" name="TrieIntField"/>
+        <fieldType class="com.datastax.bdp.search.solr.core.types.TupleField" name="TupleField"/>
+    </types>
+    <fields>
+        <field docValues="true" indexed="true" multiValued="false" name="departure_time" stored="true" type="TrieDateField"/>
+        <field indexed="true" multiValued="false" name="shipping_firstname" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="merchant_customer_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="account_hmac" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="client_application_user" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_address_hash_implied" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_country" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="complete_route" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_address1" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_country" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="payreq_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_phone_hmac" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="device_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="payment_processor" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_phone_encryption_keyid" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="account_bin" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_email_encrypt" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_phone_hash" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_phone_encrypt" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_phone_encrypt" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="request_id" stored="true" type="StrField"/>
+        <field indexed="true" multiValued="false" name="shipping_zipcode" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="date_added" stored="true" type="TrieDateField"/>
+        <field indexed="true" multiValued="false" name="ingrian_key" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_address_hash_normalized" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="personal_id_hmac" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="payment_currency" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="partner_original_transaction_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_city" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="merchant_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="customer_ip_address" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="personal_id_hash" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="profile_result_currency" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="transaction_date" stored="true" type="TrieDateField"/>
+        <field indexed="true" multiValued="false" name="added_by" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="true" name="trans_ref_typecode" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="device_fingerprint" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="true_ip_address" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="payment_subtype" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="passive_profile_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="passive_profile_name" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="reseller_id" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="device_smart_id_confidence" stored="true" type="TrieIntField"/>
+        <field indexed="true" multiValued="false" name="personal_id_encrypt" stored="true" type="TextField"/>
+        <dynamicField indexed="true" multiValued="false" name="mdd_hash*" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="device_smart_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_lastname" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_email_hmac" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_firstname" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="profile_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="subscription_id" stored="true" type="TextField"/>
+        <dynamicField indexed="true" multiValued="false" name="mdd_encrypt*" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="account_suffix" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="ip_country" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="payment_amount" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="profile_converted_amount" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="link_request_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="passive_profile_decision" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="true" name="trans_ref_no" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_address1" stored="true" type="TextField"/>
+        <field indexed="false" multiValued="true" name="apps" stored="true" type="TextField"/>
+        <!-- FIT Input fields -->
+        <field indexed="true" multiValued="true" name="apps_app" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="true" name="apps_imp" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="true" name="apps_rflag" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="true" name="apps_rcode" stored="true" type="TrieIntField"/>
+        <field indexed="true" multiValued="true" name="apps_reasoncode" stored="true" type="TrieIntField"/>
+        <field indexed="true" multiValued="true" name="apps_retcode" stored="true" type="TrieIntField"/>
+
+        <field docValues="true" indexed="true" multiValued="false" name="passive_score_result" stored="true" type="TrieIntField"/>
+        <field indexed="true" multiValued="false" name="shipping_phone_hash" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_city" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="profile_converted_currency" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="profile_result_amount" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_method" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="true" name="applications" stored="true" type="TupleField"/>
+        <field indexed="true" multiValued="false" name="applications.application" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="applications.rflag" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="applications.rmessage" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="applications.rcode" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="applications.reasoncode" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="applications.returncode" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="applications.implicitly_called" stored="true" type="TextField"/>
+        <dynamicField indexed="true" multiValued="false" name="mdd_hmac*" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_lastname" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_zipcode" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="profile_name" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="score_result" stored="true" type="TrieIntField"/>
+        <field indexed="true" multiValued="false" name="shipping_addr_hmac_norm" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_state" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="merchant_reference_no" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="shipping_addr_hmac_impl" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="account_hash" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_email_hash" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="terminal_serial_number" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_phone_hmac" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="billing_state" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="xid" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="client_application" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="payment_type" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="true" name="transaction_reference_typecode" stored="true" type="TupleField"/>
+        <field indexed="true" multiValued="false" name="transaction_reference_typecode.payment_typecode" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="transaction_reference_typecode.transaction_reference_no" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="profile_decision" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="bin_country" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="auth_ind" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="profile_merchant_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="payment_solution_type" stored="true" type="TextField"/>
+    </fields>
+    <uniqueKey>request_id</uniqueKey>
+</schema>
