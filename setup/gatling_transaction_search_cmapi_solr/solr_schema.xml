@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema name="autoSolrSchema" version="1.5">
+    <types>
+        <fieldType class="org.apache.solr.schema.TextField" name="TextField">
+            <analyzer>
+                <tokenizer class="solr.StandardTokenizerFactory"/>
+                <filter class="solr.LowerCaseFilterFactory"/>
+            </analyzer>
+        </fieldType>
+        <fieldType class="org.apache.solr.schema.TrieDateField" name="TrieDateField"/>
+        <fieldType class="org.apache.solr.schema.StrField" name="StrField"/>
+        <fieldType class="org.apache.solr.schema.TrieIntField" name="TrieIntField"/>
+    </types>
+    <fields>
+        <field indexed="true" multiValued="false" name="sla_queue_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="case_owner_username" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="ownership_modification_date" stored="true" type="TrieDateField"/>
+        <field indexed="true" multiValued="false" name="sla_decision" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="fraudlist_action" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="sla_date_expired" stored="true" type="TrieDateField"/>
+        <field indexed="true" multiValued="false" name="queue_name" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="queue_id" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="case_mgt_reviewed_by" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="sla_modified_date" stored="true" type="TrieDateField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="request_id" stored="true" type="StrField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="case_mgt_date" stored="true" type="TrieDateField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="date_modified" stored="true" type="TrieDateField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="sla_time" stored="true" type="TrieDateField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="follow_id" stored="true" type="StrField"/>
+        <field indexed="true" multiValued="false" name="fraudlist_marking_reason" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="case_mgt_decision" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="queue_update_date" stored="true" type="TrieDateField"/>
+        <field indexed="true" multiValued="false" name="case_owner_orgid" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="priority" stored="true" type="TrieIntField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="priority_modified_date" stored="true" type="TrieDateField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="sla_move_count" stored="true" type="TrieIntField"/>
+        <field indexed="true" multiValued="false" name="final_decision" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="case_mgt_org" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="sla_exempt" stored="true" type="TextField"/>
+        <field indexed="true" multiValued="false" name="sla_action_type" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="fraudlist_modified_date" stored="true" type="TrieDateField"/>
+        <field indexed="true" multiValued="false" name="sla_expired" stored="true" type="TextField"/>
+        <field docValues="true" indexed="true" multiValued="false" name="sla_start_time" stored="true" type="TrieDateField"/>
+        <field indexed="true" multiValued="false" name="modified_by" stored="true" type="TextField"/>
+    </fields>
+    <uniqueKey>(request_id,follow_id)</uniqueKey>
+</schema>
