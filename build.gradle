@@ -22,7 +22,8 @@ dependencies {
 
 
 jar {
-    exclude('com/datastax/**')
+    exclude('com/datastax/bdp/**')
+    exclude('org/apache/cassandra/**')
 
     from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
         exclude "META-INF/*.SF"

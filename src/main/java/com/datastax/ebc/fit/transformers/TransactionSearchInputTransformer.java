@@ -15,9 +15,9 @@ public class TransactionSearchInputTransformer extends FieldInputTransformer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TransactionSearchInputTransformer.class);
 
-
     @Override
     public boolean evaluate(String field) {
+        LOGGER.info("TransactionSearchInputTransformer called");
         return field.equals("apps");
     }
 
@@ -30,6 +30,7 @@ public class TransactionSearchInputTransformer extends FieldInputTransformer {
             LOGGER.info("fieldValue: " + fieldValue);
 
             Apps apps = new Apps(fieldValue);
+            LOGGER.info("apps: " + apps.toString());
 
             SchemaField appsAppField = core.getLatestSchema().getFieldOrNull("apps_app");
             SchemaField appsImpField = core.getLatestSchema().getFieldOrNull("apps_imp");

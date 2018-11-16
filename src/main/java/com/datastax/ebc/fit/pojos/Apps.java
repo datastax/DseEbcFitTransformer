@@ -11,26 +11,31 @@ public class Apps {
     private String reasoncode;
     private String retcode;
 
+    @Override
+    public String toString() {
+        return "APP {app: "+getApp()+",imp: "+getImp()+",rflag: "+getRflag()+",rcode: "+getRcode()+",reasoncode: "+getReasoncode()+",retcode: "+getRetcode()+"}";
+    }
+
     public Apps(String str) {
         String[] raw = str.split("\\|\\|");
         for (String entry : raw) {
             String[] keyvalue = entry.split(":");
-            if (keyvalue[0].equalsIgnoreCase("apps_app")) {
+            if (keyvalue[0].equalsIgnoreCase("app")) {
                 setApp(keyvalue[1]);
             }
-            else if (keyvalue[0].equalsIgnoreCase("apps_imp")) {
+            else if (keyvalue[0].equalsIgnoreCase("imp")) {
                 setImp(keyvalue[1]);
             }
-            else if (keyvalue[0].equalsIgnoreCase("apps_rflag")) {
+            else if (keyvalue[0].equalsIgnoreCase("rflag")) {
                 setRflag(keyvalue[1]);
             }
-            else if (keyvalue[0].equalsIgnoreCase("apps_rcode")) {
+            else if (keyvalue[0].equalsIgnoreCase("rcode")) {
                 setRcode(keyvalue[1]);
             }
-            else if (keyvalue[0].equalsIgnoreCase("apps_reasoncode")) {
+            else if (keyvalue[0].equalsIgnoreCase("reasoncode")) {
                 setReasoncode(keyvalue[1]);
             }
-            else if (keyvalue[0].equalsIgnoreCase("apps_retcode")) {
+            else if (keyvalue[0].equalsIgnoreCase("retcode")) {
                 setRetcode(keyvalue[1]);
             }
         }
