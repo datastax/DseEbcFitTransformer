@@ -2,8 +2,6 @@ package com.datastax.ebc.fit.transformers;
 
 import com.datastax.bdp.search.solr.FieldInputTransformer;
 import com.datastax.ebc.fit.pojos.Apps;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.commons.lang.StringUtils;
 import org.apache.lucene.document.Document;
 import org.apache.solr.core.SolrCore;
 import org.apache.solr.schema.IndexSchema;
@@ -12,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-
 
 public class TransactionSearchInputTransformer extends FieldInputTransformer {
 
@@ -29,21 +26,10 @@ public class TransactionSearchInputTransformer extends FieldInputTransformer {
                                    String fieldValue, DocumentHelper helper) throws IOException {
 
         try {
-            ObjectMapper mapper = new ObjectMapper();
-
             LOGGER.info("TransactionSearchInputTransformer called");
             LOGGER.info("fieldValue: " + fieldValue);
 
-            String raw = StringUtils.replace(fieldValue, "||", "\",\"");
-            String rawJson = StringUtils.replace(raw, ":", "\":\"");
-            String validJson = StringUtils.replace(rawJson, "\'", "\"");
-
-            Apps apps = mapper.readValue(validJson, Apps.class);
-
-            // initial: {'app:ics_bill||imp:N||rflag:DINVALIDDATA||rcode:0||reasoncode:102||retcode:1261009'}
-            // raw: {'app:ics_bill","imp:N","rflag:DINVALIDDATA","rcode:0","reasoncode:102","retcode:1261009'}
-            // rawJson: {'app":"ics_bill","imp":"N","rflag":"DINVALIDDATA","rcode":"0","reasoncode":"102","retcode":"1261009'}
-            // validJson: {"app":"ics_bill","imp":"N","rflag":"DINVALIDDATA","rcode":"0","reasoncode":"102","retcode":"1261009"}
+            Apps apps = new Apps(fieldValue);
 
             SchemaField appsAppField = core.getLatestSchema().getFieldOrNull("apps_app");
             SchemaField appsImpField = core.getLatestSchema().getFieldOrNull("apps_imp");

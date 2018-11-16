@@ -17,15 +17,11 @@ repositories {
 dependencies {
     compileOnly fileTree(dir: 'lib', includes: ['*.jar'])
     compileOnly group: 'org.slf4j', name: 'slf4j-simple', version: '1.6.1'
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.0'
-    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-smile', version: '2.9.0'
-    compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 
 
 jar {
-
     exclude('com/datastax/**')
 
     from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
