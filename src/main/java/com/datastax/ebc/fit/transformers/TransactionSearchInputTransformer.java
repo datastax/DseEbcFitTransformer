@@ -17,20 +17,14 @@ public class TransactionSearchInputTransformer extends FieldInputTransformer {
 
     @Override
     public boolean evaluate(String field) {
-        LOGGER.info("TransactionSearchInputTransformer called");
         return field.equals("apps");
     }
 
     @Override
     public void addFieldToDocument(SolrCore core, IndexSchema schema, String key, Document doc, SchemaField fieldInfo,
                                    String fieldValue, DocumentHelper helper) throws IOException {
-
         try {
-            LOGGER.info("TransactionSearchInputTransformer called");
-            LOGGER.info("fieldValue: " + fieldValue);
-
             Apps apps = new Apps(fieldValue);
-            LOGGER.info("apps: " + apps.toString());
 
             SchemaField appsAppField = core.getLatestSchema().getFieldOrNull("apps_app");
             SchemaField appsImpField = core.getLatestSchema().getFieldOrNull("apps_imp");
@@ -39,13 +33,13 @@ public class TransactionSearchInputTransformer extends FieldInputTransformer {
             SchemaField appsReasonCodeField = core.getLatestSchema().getFieldOrNull("apps_reasoncode");
             SchemaField appsRetCodeField = core.getLatestSchema().getFieldOrNull("apps_retcode");
 
-            helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsAppField, apps.getApp());
-            helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsImpField, apps.getImp());
-            helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsRFlagField, apps.getRflag());
+            if (null!=apps.getApp()) helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsAppField, apps.getApp());
+            if (null!=apps.getImp()) helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsImpField, apps.getImp());
+            if (null!=apps.getRflag()) helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsRFlagField, apps.getRflag());
 
-            helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsRCodeField, apps.getRcode());
-            helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsReasonCodeField, apps.getReasoncode());
-            helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsRetCodeField, apps.getRetcode());
+            if (null!=apps.getRcode()) helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsRCodeField, apps.getRcode());
+            if (null!=apps.getReasoncode()) helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsReasonCodeField, apps.getReasoncode());
+            if (null!=apps.getRetcode()) helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsRetCodeField, apps.getRetcode());
 
         } catch (Exception ex) {
             LOGGER.error(ex.getMessage());
