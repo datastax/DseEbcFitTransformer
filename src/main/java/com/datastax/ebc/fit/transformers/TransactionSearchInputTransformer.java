@@ -42,7 +42,7 @@ public class TransactionSearchInputTransformer extends FieldInputTransformer {
             if (null!=apps.getRetcode()) helper.addFieldToDocument(core, core.getLatestSchema(), key, doc, appsRetCodeField, apps.getRetcode());
 
         } catch (Exception ex) {
-            LOGGER.error(ex.getMessage());
+            LOGGER.error("Exception in EBC FIT Transformer caused by " + ex.getMessage(),ex);
             throw new RuntimeException(ex);
         }
     }
